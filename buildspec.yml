@@ -6,7 +6,7 @@ phases:
       docker: 18
     commands:
       - echo "Installing dependencies"
-      - apt-get -y update
+      # - apt-get -y update
       # - apt-get -y install jq
 
   pre_build:
