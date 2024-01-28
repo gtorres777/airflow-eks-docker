@@ -28,7 +28,6 @@ phases:
     commands:
       - echo Build completed on `date`
       - echo "Pushing Docker image to ECR"
-      - echo "Pushing Docker image to ECR"
       # - docker push "${REPOSITORY_URI}:latest"
       # - docker push "${REPOSITORY_URI}:${TAG}"
       # - printf '{"Tag":"%s","RepositoryUri":"%s"}' $TAG $REPOSITORY_URI $PROJECT_NAME $ARTIFACT_BUCKET > build.json
