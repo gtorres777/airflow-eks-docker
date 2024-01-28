@@ -6,7 +6,10 @@ phases:
       docker: 18
     commands:
       - echo "Installing dependencies"
-      - curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
+      - rm -f /etc/apt/sources.list.d/sbt.list
+      - curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg > pubkey.gpg
+      - apt-key add pubkey.gpg
+      - rm -rf pubkey.gpg
       - apt-get -y update
       - apt-get -y install jq
 
