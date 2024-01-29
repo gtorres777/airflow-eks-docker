@@ -25,6 +25,7 @@ phases:
       - aws --version
       - aws ecr get-login-password --region us-east-1 | /usr/local/bin/docker login --username AWS --password-stdin 111355452311.dkr.ecr.us-east-1.amazonaws.com
       - TAG="$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | head -c 8)"
+      - echo $TAG
       
   build:
     commands:
@@ -39,6 +40,9 @@ phases:
       - docker push "${REPOSITORY_URI}:latest"
       - docker push "${REPOSITORY_URI}:${TAG}"
       - printf '{"Tag":"%s","RepositoryUri":"%s"}' $TAG $REPOSITORY_URI $PROJECT_NAME $ARTIFACT_BUCKET > build.json
+      - git clone https://github.com/gtorres777/airflow-argocd.git
+      - ls
+
 
 artifacts:
   files:
